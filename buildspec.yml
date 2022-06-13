@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo starting build
+  install:
+    runtime-versions:
+      java: corretto11
+
+  build:
+    commands:
+      - echo creating jar of project
+      - mvn clean install
+      - echo jar created on `date`
+
+  post_build:
+    commands:
+      - echo Build completed successfully on `date`
+artifacts:
+  files:
+    - target/sample-codebuild.jar
